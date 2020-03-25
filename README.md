@@ -1,9 +1,9 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Work Day Scheduler
 [Hosted on Github](https://brian-fairbanks.github.io/Daily_Planner/)
 
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+Create a simple calendar application that allows the user to save events for each hour of the day.  It will also display the ablity to work with 3rd pary API's/Libraries, such as jQuery and Moments to dynamically update the CSS and HTML
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+[Moment.js](https://momentjs.com/) library works with date and time.
 
 ## User Story
 
@@ -17,8 +17,10 @@ SO THAT I can manage my time effectively
 
 ```
 GIVEN I am using a daily planner to create a schedule
+
 WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
+THEN the current day is displayed at the top of the calendar using moments.
+
 WHEN I scroll down
 THEN I am presented with timeblocks for standard business hours
 WHEN I view the timeblocks for that day
@@ -34,14 +36,3 @@ THEN the saved events persist
 The following animation demonstrates the application functionality:
 
 ![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
