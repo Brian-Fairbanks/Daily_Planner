@@ -39,6 +39,12 @@ function generateTimeBlock(timeObj){
     curBlock.append(timeBlockComment);
     curBlock.append(timeBlockSave);
 
+    //immediately hide if it is outisde the designated work hours
+    if(timeObj.time < workHoursStart || timeObj.time > workHoursEnd){
+        curBlock.addClass("d-none");
+    }
+    
+
     //return the completed timeBlock Div
     return curBlock;
 }
@@ -52,7 +58,7 @@ function printTimeBlock(){
     for (var i=0; i<day.length; i++){
         //append the Cur block Div to the TimeBlock id in the DOM
         timeBlockDisplay.append( generateTimeBlock(day[i]) );
-    }
+        }
 
     //console.log(day[0].time.format('LT'));
 }
