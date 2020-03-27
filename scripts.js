@@ -40,7 +40,7 @@ function generateTimeBlock(timeObj){
     curBlock.append(timeBlockSave);
 
     //immediately hide if it is outisde the designated work hours
-    if(timeObj.time < workHoursStart || timeObj.time > workHoursEnd){
+     if(timeObj.time.format("HH") < workHoursStart || timeObj.time.format("HH") > workHoursEnd){
         curBlock.addClass("d-none");
     }
     
@@ -72,9 +72,9 @@ function colorTimeBlocks(){
         var curBlock = $("#block"+i);
 
         // setting past if it is lower than the current time
-        if(day[i].time < curMoment){
+        if(day[i].time.format("HH") < curMoment.format("HH")){
             // if time < now also time+interval < now : past time block
-            if(day[i].time.clone().add(interval,'s') < curMoment){
+            if(day[i].time.clone().add(interval,'s').format("HH") < curMoment.format("HH")){
                 curBlock.removeClass("present future")
                 curBlock.addClass("past");
             }
@@ -146,8 +146,8 @@ function constructDay(){
 #######################################*/
 
 // hardcoding work hours for now...
-workHoursStart = moment("08:00:00AM", ["hh:mm:ssA"]);
-workHoursEnd = moment("05:00:00PM", ["hh:mm:ssA"]);
+workHoursStart = 0;
+workHoursEnd = 24;
 
 //get the day array of objects, wether it exists or not
 constructDay();
@@ -171,6 +171,9 @@ updateInterval = setInterval(update, 1000);
     //save the data
     localStorage.setItem('day', JSON.stringify(day));
     //console.log(dayIndex +" : "+ message);
+
+    //$(this).addClass("saved");
+    //setTimeout(function($(this)){ $(this).removeClass("saved")}, 1500);
  })
 
 

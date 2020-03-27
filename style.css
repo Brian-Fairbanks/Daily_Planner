@@ -74,4 +74,9 @@ textarea{
 .saveBtn i:hover {
   font-size: 60px;
   transition: all .3s ease-in-out;
+  text-shadow:0px 0px 10px #ffffff;
+}
+
+.saved{
+  color:#0f0;
 }
