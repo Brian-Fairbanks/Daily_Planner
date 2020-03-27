@@ -71,18 +71,29 @@ function colorTimeBlocks(){
         //get current block associated with the timeObject in the day array
         var curBlock = $("#block"+i);
 
+        // // setting past if it is lower than the current time
+        // if(day[i].time.format("HH") < curMoment.format("HH")){
+        //     // if time < now also time+interval < now : past time block
+        //     if(day[i].time.clone().add(interval,'s').format("HH") < curMoment.format("HH")){
+        //         curBlock.removeClass("present future")
+        //         curBlock.addClass("past");
+        //     }
+        //     //otherwise, time < now , but time+interval > now : present time block
+        //     else{
+        //         curBlock.removeClass("past future")
+        //         curBlock.addClass("present");
+        //     }
+
+        
         // setting past if it is lower than the current time
         if(day[i].time.format("HH") < curMoment.format("HH")){
-            // if time < now also time+interval < now : past time block
-            if(day[i].time.clone().add(interval,'s').format("HH") < curMoment.format("HH")){
-                curBlock.removeClass("present future")
-                curBlock.addClass("past");
-            }
+            curBlock.removeClass("present future")
+            curBlock.addClass("past");
+        }
             //otherwise, time < now , but time+interval > now : present time block
-            else{
-                curBlock.removeClass("past future")
-                curBlock.addClass("present");
-            }
+        else if(day[i].time.format("HH") == curMoment.format("HH")){
+            curBlock.removeClass("past future")
+            curBlock.addClass("present");
         }
         // time > now : future time block
         else{
