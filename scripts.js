@@ -146,8 +146,8 @@ function constructDay(){
 #######################################*/
 
 // hardcoding work hours for now...
-workHoursStart = 0;
-workHoursEnd = 24;
+workHoursStart = 8;
+workHoursEnd = 17;
 
 //get the day array of objects, wether it exists or not
 constructDay();
@@ -172,8 +172,13 @@ updateInterval = setInterval(update, 1000);
     localStorage.setItem('day', JSON.stringify(day));
     //console.log(dayIndex +" : "+ message);
 
-    //$(this).addClass("saved");
-    //setTimeout(function($(this)){ $(this).removeClass("saved")}, 1500);
+    //workaround to setting up jqueryUI
+    var thisSave = $(this);
+    thisSave.addClass("saved");
+    // delay was required, or else the css animation would not work
+    setTimeout(function(){thisSave.addClass("saveRemove");}, 1);
+    //wait 2 seconds, then remove the classes
+    setTimeout(function(){thisSave.removeClass("saved saveRemove");}, 2000);
  })
 
 

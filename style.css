@@ -80,3 +80,8 @@ textarea{
 .saved{
   color:#0f0;
 }
+
+.saveRemove{
+  color:#fff;
+  transition: all 2s ease-in-out;
+}
